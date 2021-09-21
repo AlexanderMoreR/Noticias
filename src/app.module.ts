@@ -16,6 +16,8 @@ import { NoticiasModule } from './noticias/noticias.module';
       entities: [__dirname + './**/**/*entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,
+      logging: true,
+      logger: 'file',
     }),
     NoticiasModule],
   controllers: [AppController],

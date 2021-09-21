@@ -10,7 +10,7 @@ export class NoticiasController {
 
     @Get()
     async getNoticias() {
-        const data = this.noticiasService.getNoticias();
+        const data = await this.noticiasService.getNoticias();
         return { data };
         //Crear un servicio para guardar las consulta cada vez que se consume esta peticion.
     }
@@ -19,7 +19,7 @@ export class NoticiasController {
     async getNoticia(
         @Param('id', ParseIntPipe) id: number
     ) {
-        const data = this.noticiasService.getNoticia(id);
+        const data = await this.noticiasService.getNoticia(id);
         return { data };
     }
 
@@ -27,20 +27,20 @@ export class NoticiasController {
     async createNoticia(
         @Body() dto: createNoticia
     ) {
-        const data = this.noticiasService.createNoticia(dto);
-        return { data };
+        const data = await this.noticiasService.createNoticia(dto);
+        return { message: 'Noticia Creada', data };
     }
 
     @Put(':id')
     async editNoticia( @Param('id') id: number, @Body() dto: editNoticia
     ) {
-        const data = this.noticiasService.editNoticia(id, dto);
+        const data = await this.noticiasService.editNoticia(id, dto);
         return{ message: 'Noticia editada', data };
     }
 
     @Delete(':id')
     async deleteNoticia(@Param('id') id: number) {
-        const data = this.deleteNoticia(id);
+        const data = await this.deleteNoticia(id);
         return{ message: 'Noticia eliminada', data };
     }
 }

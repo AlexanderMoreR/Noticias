@@ -11,8 +11,9 @@ async function bootstrap() {
       whitelist: true
     }),
   );
-
-  await app.listen(3000);
+  
+  app.enableCors();
+  await app.listen(4000);
   logger.log(`Servidor corriendo en ${ await app.getUrl() }`);
 
 }
