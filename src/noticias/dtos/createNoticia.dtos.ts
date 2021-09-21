@@ -18,6 +18,4 @@ export class createNoticia {
     })
     category: noticiasCategory;
 
-    @IsDate()
-    createDate: Date;
 }
