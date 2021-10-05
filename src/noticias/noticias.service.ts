@@ -16,7 +16,7 @@ export class NoticiasService {
         return await this.noticiaRepository.find();
     }
 
-    async getNoticia(id: number){
+    async getNoticia(id: string){
         const noticia = await this.noticiaRepository.findOne(id);
         if (!noticia) throw new NotFoundException();
         return noticia;

@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { query } from 'express';
 import { createNoticia } from './dtos/createNoticia.dtos';
 import { editNoticia } from './dtos/editNoticia.dtos';
 import { NoticiasService } from './noticias.service';
@@ -12,12 +13,11 @@ export class NoticiasController {
     async getNoticias() {
         const data = await this.noticiasService.getNoticias();
         return { data };
-        //Crear un servicio para guardar las consulta cada vez que se consume esta peticion.
     }
 
     @Get(':id')
     async getNoticia(
-        @Param('id', ParseIntPipe) id: number
+        @Param('id') id: string
     ) {
         const data = await this.noticiasService.getNoticia(id);
         return { data };

@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { NoticiasModule } from './noticias/noticias.module';
+import { BusquedaModule } from './busqueda/busqueda.module';
 
 @Module({
   imports: [
@@ -19,7 +20,8 @@ import { NoticiasModule } from './noticias/noticias.module';
       logging: true,
       logger: 'file',
     }),
-    NoticiasModule],
+    NoticiasModule,
+    BusquedaModule],
   controllers: [AppController],
   providers: [AppService],
 })
